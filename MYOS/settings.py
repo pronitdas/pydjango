@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api',
+    'rest_framework.authtoken',
+    'push_notifications',
+
 ]
+
+
+PUSH_NOTIFICATIONS_SETTINGS = {
+    'APNS_CERTIFICATE': BASE_DIR + '/orlink.pem',
+    'APNS_TOPIC': 'com.orlink',
+    'APNS_USE_ALTERNATIVE_PORT':'2197',
+    'APNS_USE_SANDBOX':'True',
+
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -52,7 +69,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'MYOS.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -125,3 +141,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS ={
+    os.path.join(BASE_DIR,"static")
+}
+
+MEDIA_URL = "/profilepictures/"
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR + '/'),"profilepictures")
