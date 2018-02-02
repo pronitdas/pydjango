@@ -122,7 +122,6 @@ def create_list(request):
     """
     List all tasks, or create a new task.
     """
-
     if request.method == 'GET':
 
         tasks = Signup.objects.all()
@@ -146,8 +145,6 @@ def create_list(request):
             return Response({'status': "success", 'users': obj_serializer.data, 'status_code':status.HTTP_201_CREATED})
         else:
             return Response({'msg':serializer.errors,'status_code':status.HTTP_400_BAD_REQUEST,'status': "fail"})
-
-
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def user_details(request,pk):
@@ -187,8 +184,6 @@ def user_details(request,pk):
         user.delete()
         return Response({'status': "success", 'msg': "Record Deleted Successfully", 'status_code':status.HTTP_200_OK})
 
-
-
 @api_view(['GET','POST'])
 def user_login(request):
     if request.method == "POST":
@@ -213,7 +208,6 @@ def user_login(request):
         except Exception as e:
             print e
             return Response({'msg': "This username/email is not valid",'status_code': status.HTTP_400_BAD_REQUEST, 'status': "fail"})
-
 
 @api_view(['GET'])
 def user_logout(request,pk):
@@ -240,10 +234,6 @@ def user_logout(request,pk):
             except:
                 return Response({'msg': "Invalid data", 'status_code': status.HTTP_400_BAD_REQUEST, 'status': "fail"})
 
-
-
-
-
 @api_view(['POST'])
 def update_deviceToken(request,pk):
     try:
@@ -266,7 +256,6 @@ def update_deviceToken(request,pk):
                 return Response({'status': "success", 'msg':"Device Token updated successfully.", 'status_code': status.HTTP_200_OK})
             except:
                 return Response({'msg': "Invalid data", 'status_code': status.HTTP_400_BAD_REQUEST, 'status': "fail"})
-
 
 def push_notification(apns_token):
     # queryset = APNSDevice.objects.get_queryset().values_list()
