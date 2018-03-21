@@ -1,0 +1,32 @@
+<form action = {% url 'formlogin' %} method="post">
+
+    {% csrf_token %}
+
+    First Name: <input type = "text" name = "first_name"><br /><br />
+    {{ form.errors.name }}
+    Last Name: <input type = "text" name = "last_name" /><br /><br />
+    {{ form.errors.name }}
+    Email Id: <input type = "text" name = "email_id"><br /><br />
+    {{ form.errors.email }}
+    Password: <input type = "password" name = "password",id="password"><br /><br />
+    {{ form.errors.password }}
+    Age: <input type = "text" name = "age" /><br /><br />
+    {{ form.errors.name }}
+    Gender: <input type = "text" name = "gender"><br /><br />
+    {{ form.errors.name }}
+    Level: <input type = "text" name = "level" /><br /><br />
+    {{ form.errors.name }}
+    Device_Token: <input type = "text" name = "device_token" /><br /><br />
+    {{ form.errors.name }}
+    Device_Type: <input type = "text" name = "device_type" /><br /><br />
+    {{ form.errors.name }}
+    <form enctype = "multipart/form-data"
+                     action = "save_file.py" method = "post">
+   <p>File: <input type = "file" name = "filename" /></p>
+   <p><input type = "submit" value = "Upload" /></p>
+   </form>
+
+
+
+    <input type = "submit" value = "Sign Up" />
+</form>

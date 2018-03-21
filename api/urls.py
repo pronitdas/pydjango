@@ -2,9 +2,19 @@ from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.conf.urls.static import static
 from django.conf import settings
+from views import (
+    signup_user,
+    user_details, 
+    user_login, 
+    user_logout, 
+    update_deviceToken, 
+    create_session,  
+    user_profile, 
+    user_editprofile, 
+    favroites_trainer,
+    apply_promocode
+    ) 
 
-from .views import SignUpUserView ,DetailsView,GetRecord, UpdateRecord, DeleteRecord
-from views import *
 #urlpatterns = {
  #   url(r'^MYOS/create/', SignUpUserView.as_view(), name="create"),
   #  url(r'^MYOS/list/', DetailsView.as_view(), name="retrieve"),
@@ -15,12 +25,15 @@ from views import *
 
 urlpatterns = [
 
-    url(r'^MYOS/create/$', create_list, name='create_list'),
-    url(r'^MYOS/details/(?P<pk>[0-9]+)$', user_details, name='user_details'),
-    url(r'^MYOS/login/$', user_login, name='user_login'),
-    url(r'^MYOS/logout/(?P<pk>[0-9]+)$', user_logout, name='user_logout'),
-    url(r'^MYOS/updatetoken/(?P<pk>[0-9]+)$', update_deviceToken, name='update_deviceToken'),
-
+    url(r'^MYOS/user/usersignup/$', signup_user, name='signup_user'),
+    url(r'^MYOS/user/userprofile/$', user_profile, name='user_profile'),
+    url(r'^MYOS/user/usereditprofile/$', user_editprofile, name='user_editprofile'),
+    url(r'^MYOS/user/login/$', user_login, name='user_login'),
+    url(r'^MYOS/user/logout/$', user_logout, name='user_logout'),
+    url(r'^MYOS/user/updatetoken/$', update_deviceToken, name='update_deviceToken'),
+    url(r'^MYOS/user/createsession/$', create_session, name='create_session'),
+    url(r'^MYOS/user/favroitestrainer/$', favroites_trainer, name='favroites_trainer'),
+    url(r'^MYOS/user/applypromocode/$', apply_promocode, name='apply_promocode')
 ]
 
 if settings.DEBUG:
