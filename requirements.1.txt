@@ -7,7 +7,7 @@ cryptography==2.1.4
 Django==1.11
 django-push-notifications==1.6.0
 django-tastypie==0.14.0
-djangorestframework==3.7.7
+djangorestframework==3.11.2
 ecdsa==0.13
 enum34==1.1.6
 Flask==0.12.2
