@@ -10,7 +10,7 @@ django-tastypie==0.14.0
 djangorestframework==3.11.2
 ecdsa==0.13
 enum34==1.1.6
-Flask==0.12.2
+Flask==1.0
 h2==2.6.2
 hpack==3.0.0
 http-ece==1.0.5
