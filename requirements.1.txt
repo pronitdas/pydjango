@@ -8,7 +8,7 @@ Django==2.2.26
 django-push-notifications==1.6.0
 django-tastypie==0.14.0
 djangorestframework==3.11.2
-ecdsa==0.13
+ecdsa==0.13.3
 enum34==1.1.6
 Flask==1.0
 h2==2.6.2
